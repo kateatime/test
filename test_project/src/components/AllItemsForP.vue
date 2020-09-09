@@ -1,22 +1,29 @@
 <template>
     <div>
+        
         <ul> 
-            
+            <div class="container firstContainer">
+        <div class="row">
+            <div class="col-9">Name</div>
+            <div class="col-3">Date</div>
+        </div>
+        </div>
                 <li class="item" v-for="(item, index) in allPosts" :key="item.id" >
                     <div class="container">
                         <div class="row">
-                            <div class="col-10">
+                            <div class="col-9">
+                                
                                 <strong class="mr-3" >{{ index + 1 }}</strong>
                                 <p id="copyText">{{item.title}}</p>
                                 
                             </div>
                             <div class="col-2">
+                                {{item.date}}
+                            </div>
+                            <div class="col-1">
                                 <form>
                                 <b-button v-on:click="copyItem(item.title)" size="sm" variant="outline-info" class="mr-2">
-                                    <b-icon icon="files" aria-hidden="true" variant="dark" style="">
-                                    </b-icon></b-button>
-                                    <b-button  v-on:click="removeItem(item.id)" size="sm" variant="outline-info">
-                                    <b-icon icon="trash" aria-hidden="true" variant="danger">
+                                    <b-icon icon="three-dots-vertical" aria-hidden="true" variant="dark" style="">
                                     </b-icon></b-button>
                                     
                                 </form>
@@ -34,6 +41,16 @@
 import {mapGetters, mapMutations } from 'vuex';
 import Item from '@/components/Item' 
 export default {
+    filters:{
+        getDateNow(value){ 
+            //let dd = String(value.getDate()).padStart(2, '0');
+            //let mm = String(value.getMonth() + 1).padStart(2, '0');
+            //let yyyy = value.getFullYear()%2000;
+           // value = mm + '/' + dd + '/' + yyyy; 
+            //console.log(today)
+            //return value;
+            //return String(value.getDate()).padStart(2, '0');
+        }},
     //data(){
      //   idItem:
   //},
@@ -85,15 +102,28 @@ ul{
         border-radius: 50%;
         font-weight: bold;
         }
-    .col-10{
+    .col-9{
         display: flex;
         justify-content: flex-start;
-        padding-top: 0.5rem;
+        padding-top: 0.1rem;
+    }
+    .col-1{
+        display: flex;
+        justify-content: flex-end;
+         padding-top: 0.1rem;
+    }
+    .col-3{
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 0.1rem;
     }
     .col-2{
         display: flex;
-        justify-content: flex-end;
-        padding-bottom: 0.5rem;
+        justify-content: flex-start;
+         padding-top: 0.1rem;
+    }
+    .firstContainer{
+        border-bottom: 1px solid black;
     }
     
    

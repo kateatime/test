@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     items: [
       {id: 1, title: 'Скушать бигтейсти', date: '23.01.18 16:00', complited: false},
-      {id: 2, title: 'Посмотреть сериал', date: '23.01.18 16:00',complited: false},
+      {id: 2, title: 'Посмотреть сериал', date: '23.01.18 16:00', complited: false},
       {id: 3, title: 'Сыграть в карты', date: '23.01.18 16:00', complited: false}
   ]
   },

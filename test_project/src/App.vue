@@ -1,14 +1,11 @@
 <template>
-    <div id="app">
-      <div>
-    <b-tabs
-       content-class="mt-3" align = "right" >
+  <div id="app">
+      <div class="main">
+      <b-tabs content-class="mt-3" align = "right" >
       <b-tab title="Editor" active><p><EditorTab/></p></b-tab>
       <b-tab title="Preview"><p><PreviewTab/></p></b-tab>  
-     </b-tabs>
-  
-    </div>
-
+      </b-tabs>
+      </div>
   </div>
 </template>
 
@@ -33,12 +30,23 @@ export default {
 </script>
 
 <style>
+
 #app {
+
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  width: 100%;
+  height: 100vh;
+  
+  background-color: RGB(206, 226, 235);
+  background-image: url(assets/back2.jpg);
+  background-position: top;
+  background-size: cover;
+  background-attachment: fixed;
+  
 }
 
 #nav {
