@@ -7,15 +7,15 @@
                         <div class="row">
                             <div class="col-10">
                                 <strong class="mr-3" >{{ index + 1 }}</strong>
-                                <p id="copyText">{{item.title}}</p>
+                                <p>{{item.title}}</p>
                                 
                             </div>
                             <div class="col-2">
                                 <form>
-                                <b-button v-on:click="copyItem(item.title)" size="sm" variant="outline-info" class="mr-2">
+                                <b-button v-clipboard:copy="item.title"  size="sm" variant="outline-info" class="mr-2" data-toggle="tooltip" data-placement="top" title="copy">
                                     <b-icon icon="files" aria-hidden="true" variant="dark" style="">
                                     </b-icon></b-button>
-                                    <b-button  v-on:click="removeItem(item.id)" size="sm" variant="outline-info">
+                                    <b-button  v-on:click="removeItem(item.id)" size="sm" variant="outline-info" data-toggle="tooltip" data-placement="top" title="delete">
                                     <b-icon icon="trash" aria-hidden="true" variant="danger">
                                     </b-icon></b-button>
                                     
@@ -45,21 +45,9 @@ export default {
     ...mapMutations(['deleteItem']),
     removeItem(id){
         this.deleteItem(id)
-        console.log("кнопка нажатa")
-        //console.log(id)
-        //console.log(this.allPosts.Item)
-         
+        //console.log("кнопка нажатa")
         //this.allPosts = this.allPosts.filter(t => t.id == this.Item)
         },
-    copyItem(){
-        let text = document.getElementById('copyText');
-        console.log(text)
-        text.select();
-        document.execCommand("copy")
-    }
-    },
-    components: {
-    Item
     },
     computed: mapGetters(["allPosts"])
 }
@@ -93,7 +81,6 @@ ul{
     .col-2{
         display: flex;
         justify-content: flex-end;
-        padding-bottom: 0.5rem;
     }
     
    

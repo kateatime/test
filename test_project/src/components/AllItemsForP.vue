@@ -8,7 +8,7 @@
             <div class="col-3">Date</div>
         </div>
         </div>
-                <li class="item" v-for="(item, index) in allPosts" :key="item.id" >
+                <li class="item li-Item" v-for="(item, index) in allPosts" :key="item.id" >
                     <div class="container">
                         <div class="row">
                             <div class="col-9">
@@ -22,10 +22,21 @@
                             </div>
                             <div class="col-1">
                                 <form>
-                                <b-button v-on:click="copyItem(item.title)" size="sm" variant="outline-info" class="mr-2">
+                                <!--<b-button size="sm" variant="outline-info" class="mr-2">
                                     <b-icon icon="three-dots-vertical" aria-hidden="true" variant="dark" style="">
-                                    </b-icon></b-button>
-                                    
+                                    </b-icon></b-button>-->
+                                    <div>
+                                        <b-dropdown size="sm"  variant="link" toggle-class="text-decoration-none" no-caret>
+                                            <template v-slot:button-content>
+                                    <b-icon icon="three-dots-vertical" aria-hidden="true" variant="dark" style="">
+                                    </b-icon>
+                                                <span class="sr-only">Search</span>
+                                            </template>
+                                        <b-dropdown-item v-on:click="moveToT(item.id)" href="#">Move to top</b-dropdown-item>
+                                        <b-dropdown-item v-on:click="moveToB(item.id)" href="#">Move to bottom</b-dropdown-item>
+                                        </b-dropdown>
+                                    </div>
+                              
                                 </form>
                             </div>
                         </div>
@@ -35,48 +46,25 @@
              <!--Итерируем кассив todos и баиндим кадый iтый элемент в переменную todo
                 прослушиваем событие нажатия на кнопку удаления, создавая метод для удаления removeTodo -->
         </ul>
+        
+        
     </div>
+    
 </template>
 <script>
 import {mapGetters, mapMutations } from 'vuex';
 import Item from '@/components/Item' 
 export default {
-    filters:{
-        getDateNow(value){ 
-            //let dd = String(value.getDate()).padStart(2, '0');
-            //let mm = String(value.getMonth() + 1).padStart(2, '0');
-            //let yyyy = value.getFullYear()%2000;
-           // value = mm + '/' + dd + '/' + yyyy; 
-            //console.log(today)
-            //return value;
-            //return String(value.getDate()).padStart(2, '0');
-        }},
-    //data(){
-     //   idItem:
-  //},
 
-    //props: {
-    //    item
-    //},
     methods: {
-    ...mapMutations(['deleteItem']),
-    removeItem(id){
-        this.deleteItem(id)
-        console.log("кнопка нажатa")
-        //console.log(id)
-        //console.log(this.allPosts.Item)
-         
-        //this.allPosts = this.allPosts.filter(t => t.id == this.Item)
+    ...mapMutations(['MoveToTop']),
+    moveToT(id){
+        this.MoveToTop(id)
         },
-    copyItem(){
-        let text = document.getElementById('copyText');
-        console.log(text)
-        text.select();
-        document.execCommand("copy")
-    }
-    },
-    components: {
-    Item
+    ...mapMutations(['MoveToBottom']),
+    moveToB(id){
+        this.MoveToBottom(id)
+        }
     },
     computed: mapGetters(["allPosts"])
 }
@@ -88,39 +76,28 @@ ul{
         padding-inline-start: 5%;
         padding-inline-end: 5%;
 }
-    li{
+    .li-Item{
         display: flex;
         justify-content: space-between;
-        
-        padding: .1rem 2rem;
         margin-top: 1rem;
         border-bottom: 1px solid black;
     }
-    .del {
-        background: red;
-        color: #fff;
-        border-radius: 50%;
-        font-weight: bold;
-        }
     .col-9{
         display: flex;
         justify-content: flex-start;
-        padding-top: 0.1rem;
     }
     .col-1{
         display: flex;
         justify-content: flex-end;
-         padding-top: 0.1rem;
     }
     .col-3{
         display: flex;
         justify-content: flex-start;
-        padding-top: 0.1rem;
     }
     .col-2{
         display: flex;
         justify-content: flex-start;
-         padding-top: 0.1rem;
+        padding-top: 0.1rem;
     }
     .firstContainer{
         border-bottom: 1px solid black;

@@ -23,31 +23,21 @@ export default {
             }
     },
     methods: {
-        Today(){
-
-            let today = new Date(); 
-            let dd = String(today.getDate()).padStart(2, '0');
-            let mm = String(today.getMonth() + 1).padStart(2, '0');
-            let yyyy = today.getFullYear()%2000;
-            today = mm + '/' + dd + '/' + yyyy; 
-            console.log(today)
-            return today;
-
-            //document.write(today);
-        },
+        
         ...mapMutations(['createItem']),
         onSubmit(){
+            if (this.title.trim()){
         
             this.createItem({
                 title: this.title,
                 id: Date.now(),
                 date: String(new Date().getDate()).padStart(2, '0') + '.' 
                 + String(new Date().getMonth() + 1).padStart(2, '0') + '.' 
-                + new Date().getFullYear()%2000 + ' '+ ' '+ ' '
-                + new Date().getHours() + ':' 
-                + new Date().getMinutes()
+                + new Date().getFullYear()%2000 +"\u00A0"+"\u00A0"
+                + String(new Date().getHours()).padStart(2, '0') + ':' 
+                + String(new Date().getMinutes()).padStart(2, '0')
             });
-            this.title = "";
+            this.title = "";}
         }
 
     }
