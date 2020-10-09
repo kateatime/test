@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="editor">
         <h2>EDITOR</h2>
         <AddItem/>
         <AllItems/>
@@ -18,3 +18,8 @@ export default {
     
 }
 </script>
+<style scoped>
+.editor{
+ text-align: center;
+}
+</style>

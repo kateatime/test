@@ -1,22 +1,24 @@
 <template>
-    <div>
+    <div v-if="this.$store.state.items.length">
+        
         <ul> 
             
                 <li class="item" v-for="(item, index) in allPosts" :key="item.id" >
                     <div class="container">
                         <div class="row">
-                            <div class="col-10">
-                                <strong class="mr-3" >{{ index + 1 }}</strong>
+                            <div class="col-8 row1-1">
+                                
+                                <strong class="mr-3">{{ index + 1 }}</strong>
                                 <p>{{item.title}}</p>
                                 
                             </div>
-                            <div class="col-2">
+                            <div class="col-4 row1-2">
                                 <form>
                                 <b-button v-clipboard:copy="item.title"  size="sm" variant="outline-info" class="mr-2" data-toggle="tooltip" data-placement="top" title="copy">
                                     <b-icon icon="files" aria-hidden="true" variant="dark" style="">
                                     </b-icon></b-button>
                                     <b-button  v-on:click="removeItem(item.id)" size="sm" variant="outline-info" data-toggle="tooltip" data-placement="top" title="delete">
-                                    <b-icon icon="trash" aria-hidden="true" variant="danger">
+                                    <b-icon v-on:click="removeItem(item.id)" size="sm" icon="trash" aria-hidden="true" variant="danger">
                                     </b-icon></b-button>
                                     
                                 </form>
@@ -29,6 +31,8 @@
                 прослушиваем событие нажатия на кнопку удаления, создавая метод для удаления removeTodo -->
         </ul>
     </div>
+    
+    <h4 v-else><hr> No Items! <hr> </h4>
 </template>
 <script>
 import {mapGetters, mapMutations } from 'vuex';
@@ -73,13 +77,13 @@ ul{
         border-radius: 50%;
         font-weight: bold;
         }
-    .col-10{
+    .row1-1{
         display: flex;
         justify-content: flex-start;
         padding-top: 0.5rem;
     }
-    .col-2{
-        display: flex;
+    .row1-2{
+       display: flex;
         justify-content: flex-end;
     }
     

@@ -6,13 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     items: [
-      {id: 1, title: 'Скушать бигтейсти', date: '23.01.18'+"\u00A0"+"\u00A0"+'16:00', complited: false},
-      {id: 2, title: 'Посмотреть сериал', date: '23.01.18'+"\u00A0"+"\u00A0"+'16:00', complited: false},
-      {id: 3, title: 'Сыграть в карты', date: '23.01.18'+"\u00A0"+"\u00A0"+'16:00', complited: false},
-      {id: 4, title: 'Скушать бигтейсти', date: '23.01.18'+"\u00A0"+"\u00A0"+'16:00', complited: false},
-      {id: 5, title: 'Посмотреть сериал', date: '23.01.18'+"\u00A0"+"\u00A0"+'16:00', complited: false},
-      {id: 6, title: 'Сыграть в карты', date: '23.01.18'+"\u00A0"+"\u00A0"+'16:00', complited: false},
-      {id: 6, title: 'Сыграть в карты', date: '23.01.18'+"\u00A0"+"\u00A0"+'16:00', complited: false}
+      {id: 1, title: 'Послушать музыку', date: '23.01.18'+"\u00A0"+"\u00A0"+'16:00', complited: false},
+      {id: 2, title: 'Купить дом', date: '23.01.18'+"\u00A0"+"\u00A0"+'16:00', complited: false},
+      {id: 3, title: 'Приготовить пельмешки', date: '23.01.18'+"\u00A0"+"\u00A0"+'16:00', complited: false}
   ]
   },
   mutations: {

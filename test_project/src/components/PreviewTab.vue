@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="preview">
         <h2>PREVIEW</h2>
         <AllItemsForP/>
     </div>
@@ -16,4 +16,9 @@ export default {
     
 }
 </script>
+<style scoped>
+.preview{
+ text-align: center;
+}
+</style>
 

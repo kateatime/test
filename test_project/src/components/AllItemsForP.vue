@@ -1,30 +1,25 @@
 <template>
-    <div>
+    <div v-if="this.$store.state.items.length">
         
         <ul> 
             <div class="container firstContainer">
         <div class="row">
-            <div class="col-9">Name</div>
-            <div class="col-3">Date</div>
+            <div class="col-9 row1-1">Name</div>
+            <div class="col-3 row1-2">Date</div>
         </div>
         </div>
                 <li class="item li-Item" v-for="(item, index) in allPosts" :key="item.id" >
                     <div class="container">
                         <div class="row">
-                            <div class="col-9">
+                            <div class="col-9 row2-1">
                                 
                                 <strong class="mr-3" >{{ index + 1 }}</strong>
                                 <p id="copyText">{{item.title}}</p>
                                 
                             </div>
-                            <div class="col-2">
+                            <div class="col-3 row2-2">
                                 {{item.date}}
-                            </div>
-                            <div class="col-1">
                                 <form>
-                                <!--<b-button size="sm" variant="outline-info" class="mr-2">
-                                    <b-icon icon="three-dots-vertical" aria-hidden="true" variant="dark" style="">
-                                    </b-icon></b-button>-->
                                     <div>
                                         <b-dropdown size="sm"  variant="link" toggle-class="text-decoration-none" no-caret>
                                             <template v-slot:button-content>
@@ -49,6 +44,7 @@
         
         
     </div>
+    <h4 v-else><hr> No Items! <hr> </h4>
     
 </template>
 <script>
@@ -82,19 +78,19 @@ ul{
         margin-top: 1rem;
         border-bottom: 1px solid black;
     }
-    .col-9{
+    .row1-1{
         display: flex;
         justify-content: flex-start;
     }
-    .col-1{
-        display: flex;
-        justify-content: flex-end;
-    }
-    .col-3{
+    .row2-1{
         display: flex;
         justify-content: flex-start;
     }
-    .col-2{
+    .row1-2{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .row2-2{
         display: flex;
         justify-content: flex-start;
         padding-top: 0.1rem;
