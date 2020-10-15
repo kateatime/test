@@ -14,11 +14,11 @@
                             </div>
                             <div class="col-4 row1-2">
                                 <form>
-                                <b-button v-clipboard:copy="item.title"  size="sm" variant="outline-info" class="mr-2" data-toggle="tooltip" data-placement="top" title="copy">
+                                <b-button v-clipboard:copy="item.title"  size="sm"  variant = "outline-secondary" class=" mr-2" data-toggle="tooltip" data-placement="top" title="copy">
                                     <b-icon icon="files" aria-hidden="true" variant="dark" style="">
                                     </b-icon></b-button>
-                                    <b-button  v-on:click="removeItem(item.id)" size="sm" variant="outline-info" data-toggle="tooltip" data-placement="top" title="delete">
-                                    <b-icon v-on:click="removeItem(item.id)" size="sm" icon="trash" aria-hidden="true" variant="danger">
+                                    <b-button  v-on:click="removeItem(item.id)" size="sm" variant = "outline-secondary" data-toggle="tooltip" data-placement="top" title="delete">
+                                    <b-icon  size="sm" icon="trash" aria-hidden="true" variant="danger">
                                     </b-icon></b-button>
                                     
                                 </form>
@@ -80,7 +80,6 @@ ul{
     .row1-1{
         display: flex;
         justify-content: flex-start;
-        padding-top: 0.5rem;
     }
     .row1-2{
        display: flex;

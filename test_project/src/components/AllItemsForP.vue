@@ -4,26 +4,26 @@
         <ul> 
             <div class="container firstContainer">
         <div class="row">
-            <div class="col-9 row1-1">Name</div>
-            <div class="col-3 row1-2">Date</div>
+            <div class="col-sm-9 col-7 row1-1">Name</div>
+            <div class="col-sm-3 col-5 row1-2">Date</div>
         </div>
         </div>
                 <li class="item li-Item" v-for="(item, index) in allPosts" :key="item.id" >
                     <div class="container">
                         <div class="row">
-                            <div class="col-9 row2-1">
+                            <div class="col-sm-9 col-7 row2-1">
                                 
                                 <strong class="mr-3" >{{ index + 1 }}</strong>
                                 <p id="copyText">{{item.title}}</p>
                                 
                             </div>
-                            <div class="col-3 row2-2">
+                            <div class="col-sm-3 col-5 row2-2">
                                 {{item.date}}
                                 <form>
                                     <div>
-                                        <b-dropdown size="sm"  variant="link" toggle-class="text-decoration-none" no-caret>
-                                            <template v-slot:button-content>
-                                    <b-icon icon="three-dots-vertical" aria-hidden="true" variant="dark" style="">
+                                        <b-dropdown  id="dropdown-right" right text="Right align" size="sm" class="ml-2" variant="none"  toggle-class="text-decoration-none" no-caret>
+                                            <template v-slot:button-content >
+                                    <b-icon icon="three-dots-vertical" aria-hidden="true" variant="dark">
                                     </b-icon>
                                                 <span class="sr-only">Search</span>
                                             </template>
@@ -93,11 +93,10 @@ ul{
     .row2-2{
         display: flex;
         justify-content: flex-start;
-        padding-top: 0.1rem;
+        padding-bottom: 0;
     }
     .firstContainer{
         border-bottom: 1px solid black;
     }
-    
    
 </style>

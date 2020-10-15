@@ -8,7 +8,7 @@
    <div class="col-10">
         <input type="text" class="form-control" placeholder="enter item..." v-model="title"> <!-- с помощью v-model получаем получаем содержимое input'а -->
    </div>
-    <b-button type="submit" class="btn btn-info" >Add</b-button>
+    <b-button variant = "secondary"  type="submit" >Add</b-button>
     </div>
     </div>
    
